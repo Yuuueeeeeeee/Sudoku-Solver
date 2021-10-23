@@ -4,6 +4,7 @@
 # include "txt_into_matrix.h"
 # include "SudokuSolver.h"
 
+
 int main(int argc,char **argv)
 {
     //Empty natrice
@@ -27,11 +28,8 @@ int main(int argc,char **argv)
     else
     {
         txt_into_matrix(matrix,argv[1]);
-        printf("Matrix before solving\n\n");
-        affichage(matrix);
-        printf("Matrix after solving\n\n");
         solve_rec(matrix,0,0);
-        affichage(matrix);
+        matrix_into_txt(matrix,"grid_00.result");
 
         return 0;
 

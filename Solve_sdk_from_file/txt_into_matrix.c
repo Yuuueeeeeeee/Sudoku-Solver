@@ -34,6 +34,43 @@ void txt_into_matrix(int matrix[9][9],char PATH[])
     fclose(fPointer);
 }
 
+
+void matrix_into_txt(int matrix[9][9],char PATH[])
+{
+    //initialisation of the pointer + attribution of the file that the pointer will point to
+    FILE * fPointer;
+    fPointer = fopen(PATH,"w");
+    
+    for(size_t y = 0; y < 9;y++)
+    {
+        for (size_t x = 0; x < 9; x++)
+        {
+            if (matrix[y][x] == '.')
+            {
+                fprintf(fPointer,"0");
+
+            }
+            else
+            {
+                fprintf(fPointer,"%i",matrix[y][x]);
+            }       
+            if ((x+1)%3 == 0)
+            {
+                fprintf(fPointer," ");
+            }
+        }
+        fprintf(fPointer,"\n");
+        if ((y+1)%3 == 0)
+        {
+            fprintf(fPointer,"\n");
+        }
+    
+
+    }
+
+    fclose(fPointer);
+}
+
     
  void affichage (int matrice[9][9])
 {
